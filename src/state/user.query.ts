@@ -1,0 +1,11 @@
+import { QueryEntity } from '@datorama/akita';
+import { UserStore, UserState } from './user.store';
+import { User } from '../models/user.model';
+
+export class UserQuery extends QueryEntity<UserState, User> {
+
+  constructor(protected store: UserStore) {
+    super(store);
+  }
+
+}
