@@ -4,6 +4,7 @@ import { createUser, User } from '../models/user.model';
 
 export interface UserState extends EntityState<User> {}
 
+@Injectable()
 @StoreConfig({ name: 'user' })
 export class UserStore extends EntityStore<UserState, User> {
   constructor() {
