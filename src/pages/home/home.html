@@ -10,11 +10,14 @@
 <ion-content padding>
   <h3>Ionic Menu Starter</h3>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
-
+  <form (ngSubmit)="actualizaUser()">
+    <ion-label>nombre</ion-label>
+    <ion-input type="text" [(ngModel)]='nombre' name="nombre"></ion-input>
+    <ion-label>isLogged</ion-label>
+    <ion-checkbox [(ngModel)]='isLogged' name="isLogged"></ion-checkbox>
+    <button ion-button>Enviar</button>
+  </form>
+  <button  ion-button type="button" (click)="irDetalle()">Detalle</button>
+  <button  ion-button type="button" (click)="test()">test</button>
   <button ion-button secondary menuToggle>Toggle Menu</button>
-  <button ion-button (click)="addUser()" full>Add User</button>
-  <button ion-button (click)="test()" full>Show Users</button>
 </ion-content>

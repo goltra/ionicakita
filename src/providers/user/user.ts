@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {UserStore} from '../../state/user.store';
-import {createUser,User,timezones} from '../../models/user.model';
+// import {createUser,User,timezones} from '../../models/user.model';
+import {User} from '../../models/user.model';
 import {UserQuery} from '../../state/user.query';
 
 /*
@@ -16,23 +17,15 @@ export class UserProvider {
     console.log('Hello UserProvider Provider');
   }
 
-  addItem(nombre:string){
-    const user:User = createUser({});
-    user.id = 'pepeId' + this.i++;
-    user.isLogged = false;
-    user.language = 'ES';
-    user.lastLogin = Date.now();
-    user.nombre = nombre;
-    user.timeZone = timezones["Europe/London"];
-    user.username = 'pepe'
-    
-    this.userStore.add(user);
-  }
+  
 
-  getUser(id:string){
-    this.userQuery.selectAll().subscribe(res=>{
-      console.log(res);
-      
-    })
+  getUser(){
+    return this.userQuery.getValue();    
+  }
+  setNombre(value:string){
+    this.userStore.update({nombre:value});
+  }
+  setLogged(value:boolean){
+    this.userStore.update({isLogged:value});
   }
 }
