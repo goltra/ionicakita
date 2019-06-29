@@ -26,8 +26,12 @@ export class UserProvider {
     return this.userQuery.getValue();    
   }
   setNombre(value:string){
-    this.userStore.update({nombre:value});
+    this.userStore.updateActive({nombre:value});
   }
+  setActive(id){
+    this.userStore.setActive(id);
+  }
+
   setLogged(value:boolean){
     this.userStore.update({isLogged:value});
   }

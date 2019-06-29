@@ -5,7 +5,7 @@ import { User } from '../models/user.model';
 
 @Injectable()
 export class UserQuery extends QueryEntity<UserState, User> {
-
+  isActive$=this.selectActiveId();
   constructor(protected store: UserStore) {
     super(store);
   }

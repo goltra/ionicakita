@@ -7,27 +7,32 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding [class.dark]="darkMode$ | async" >
+<ion-content padding [class.dark]="darkMode$ | async">
   <h3>Ionic Menu Starter</h3>
 
-  <form (ngSubmit)="actualizaUser()">
+  <!-- <form (ngSubmit)="actualizaUser()">
     <ion-label>nombre</ion-label>
     <ion-input type="text" [(ngModel)]='nombre' name="nombre"></ion-input>
     <ion-label>isLogged</ion-label>
     <ion-checkbox [(ngModel)]='isLogged' name="isLogged"></ion-checkbox>
     <button ion-button>Enviar</button>
-  </form>
-  <button  ion-button type="button" (click)="irDetalle()">Detalle</button>
+  </form> -->
+  <!-- <button  ion-button type="button" (click)="irDetalle()">Detalle</button>
   <button  ion-button type="button" (click)="test()">test</button>
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+  <button ion-button secondary menuToggle>Toggle Menu</button> -->
+
   <h2>DarkMode</h2>
   <p>{{darkMode$ | async}}</p>
   <h2>Status Bar</h2>
   <p>{{sidebarStatus$ | async}}</p>
-  
+
   <div>
-    <p *ngFor="let u of (user$|async )">
+    <button ion-button type="button" (click)="addUser()">Añadir Entity Usuario</button>
+    <p>click sobre el usuario para ponerlo activo y editar su nombre</p>
+    <ul>
+    <li *ngFor="let u of (user$|async )" (click)="editUser(u.id)">
       nombre: {{u.nombre}}
-    </p>
+    </li>
+  </ul>
   </div>
 </ion-content>
