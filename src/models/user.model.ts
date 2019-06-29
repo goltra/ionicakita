@@ -1,7 +1,7 @@
-import { ID } from '@datorama/akita';
+import { ID,guid } from '@datorama/akita';
 
 export interface User {
-    // id: ID;
+    id: ID;
     nombre: string;
     username: string;
     isLogged: boolean;
@@ -14,7 +14,7 @@ export interface User {
 
 export function createUser():User {
     return {
-         nombre : '', username : null, isLogged : false, language : null, timeZone:null,lastLogin:Date.now()
+         id:guid(), nombre : 'nombre', username : null, isLogged : false, language : null, timeZone:null,lastLogin:Date.now()
     };
 }
 

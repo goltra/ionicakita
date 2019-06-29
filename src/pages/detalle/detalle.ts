@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { UserProvider } from '../../providers/user/user';
 import { UserQuery } from '../../state/user.query';
 import { User, createUser } from '../../models/user.model';
+import { Observable } from 'rxjs';
 
 /**
  * Generated class for the DetallePage page.
@@ -17,13 +18,19 @@ import { User, createUser } from '../../models/user.model';
   templateUrl: 'detalle.html',
 })
 export class DetallePage {
-  private user: any = {};
+ // private users$: Observable<User[]>;
+  users$:Observable<User[]>;
   constructor(public navCtrl: NavController, public navParams: NavParams, private usrProvider: UserProvider, private usrQuery: UserQuery) {
-     console.log(this.usrQuery.getValue());
+     
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad DetallePage');
+    this.users$ =   this.usrQuery.selectAll();
+    this.usrQuery.selectCount().subscribe(num=>{
+      console.log('num elementos ' ,num);
+      
+    })
   }
 
 }

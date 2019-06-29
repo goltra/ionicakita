@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import {UserStore} from '../../state/user.store';
 // import {createUser,User,timezones} from '../../models/user.model';
-import {User} from '../../models/user.model';
+import {User,createUser} from '../../models/user.model';
 import {UserQuery} from '../../state/user.query';
+import { Observable } from 'rxjs';
 
 /*
   Generated class for the UserProvider provider.
@@ -18,7 +19,9 @@ export class UserProvider {
   }
 
   
-
+  addUser(){
+    this.userStore.add(createUser());
+  }
   getUser(){
     return this.userQuery.getValue();    
   }

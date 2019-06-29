@@ -1,11 +1,12 @@
-<ion-menu [content]="content">
+<ion-menu [content]="content" type="push" (ionOpen)="clickedSidebar()" (ionClose)="clickedSidebar(false)">
   <ion-header>
     <ion-toolbar>
       <ion-title>Menu</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <ion-content>
+  <ion-content [class.darklight]="darkMode">
+    <ion-checkbox (click)="darkmode()"></ion-checkbox>
     <ion-list>
       <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
         {{p.title}}

@@ -14,6 +14,10 @@
 
 
 <ion-content padding>
-  <p>{{user.nombre}}</p>
-  <p>{{user.isLogged}}</p>
+  <!-- <p>{{user.nombre}}</p>
+  <p>{{user.isLogged}}</p> -->
+  <!-- <p>{{nombre}}</p> -->
+  <p *ngFor="let usr of (users$ | async)">
+    Nombre: {{usr.nombre}}
+  </p>
 </ion-content>

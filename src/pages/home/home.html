@@ -7,7 +7,7 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding [class.dark]="darkMode$ | async" >
   <h3>Ionic Menu Starter</h3>
 
   <form (ngSubmit)="actualizaUser()">
@@ -20,4 +20,14 @@
   <button  ion-button type="button" (click)="irDetalle()">Detalle</button>
   <button  ion-button type="button" (click)="test()">test</button>
   <button ion-button secondary menuToggle>Toggle Menu</button>
+  <h2>DarkMode</h2>
+  <p>{{darkMode$ | async}}</p>
+  <h2>Status Bar</h2>
+  <p>{{sidebarStatus$ | async}}</p>
+  
+  <div>
+    <p *ngFor="let u of (user$|async )">
+      nombre: {{u.nombre}}
+    </p>
+  </div>
 </ion-content>
