@@ -10,11 +10,11 @@ import { environment } from '../environments/environment';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { UserProvider } from '../providers/user/user';
-import { UserStore } from '../state/user.store';
-import { UserQuery } from '../state/user.query';
+import { SessionProvider } from '../providers/session/session';
+import { SessionStore } from '../state/session.store';
+import { SessionQuery } from '../state/session.query';
 import { UiProvider } from '../providers/ui/ui';
-import {UiQuery } from '../state/ui.query';
+import { UiQuery } from '../state/ui.query';
 import { UiStore } from '../state/ui.store';
 
 @NgModule({
@@ -37,7 +37,7 @@ import { UiStore } from '../state/ui.store';
     StatusBar,
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
-    UserProvider, UserStore, UserQuery,
+    SessionProvider, SessionStore, SessionQuery,
     UiProvider, UiStore, UiQuery
   ]
 })

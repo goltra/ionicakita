@@ -4,8 +4,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { UiProvider } from '../providers/ui/ui';
 import { UiQuery } from '../state/ui.query';
-import { UserQuery } from '../state/user.query';
-import { User } from '../models/user.model';
+import { SessionQuery } from '../state/session.query';
+
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { Observable } from 'rxjs';
@@ -23,7 +23,7 @@ export class MyApp {
   pages: Array<{ title: string, component: any }>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, 
-    private uiProv: UiProvider, private uiQ: UiQuery,private userQ:UserQuery) {
+    private uiProv: UiProvider, private uiQ: UiQuery,private sessionQ:SessionQuery) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
@@ -43,8 +43,7 @@ export class MyApp {
       this.uiQ.isDarkMode$.subscribe(res => {
         this.darkMode = res;
       });
-      this.user$ = this.userQ.selectAll();
-      this.userActiveId$ = this.userQ.isActive$;
+
     });
   }
 

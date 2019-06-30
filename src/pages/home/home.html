@@ -25,14 +25,13 @@
   <p>{{darkMode$ | async}}</p>
   <h2>Status Bar</h2>
   <p>{{sidebarStatus$ | async}}</p>
+  <h2>Logueado</h2>
+  <p>{{isLogged$ | async}}</p>
+  <button ion-button (click)="logIn()" *ngIf="!(isLogged$ | async)">Log</button>
+  <button ion-button (click)="logOut()" *ngIf="(isLogged$ | async)">Logout</button>
 
   <div>
-    <button ion-button type="button" (click)="addUser()">Añadir Entity Usuario</button>
+    <button ion-button type="button">Añadir Entity Usuario</button>
     <p>click sobre el usuario para ponerlo activo y editar su nombre</p>
-    <ul>
-    <li *ngFor="let u of (user$|async )" (click)="editUser(u.id)">
-      nombre: {{u.nombre}}
-    </li>
-  </ul>
   </div>
 </ion-content>
