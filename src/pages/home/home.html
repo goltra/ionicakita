@@ -30,8 +30,4 @@
   <button ion-button (click)="logIn()" *ngIf="!(isLogged$ | async)">Log</button>
   <button ion-button (click)="logOut()" *ngIf="(isLogged$ | async)">Logout</button>
 
-  <div>
-    <button ion-button type="button">Añadir Entity Usuario</button>
-    <p>click sobre el usuario para ponerlo activo y editar su nombre</p>
-  </div>
 </ion-content>

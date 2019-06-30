@@ -1,12 +1,7 @@
 import { Injectable } from '@angular/core';
-import { SessionStore, SessionState, User,initialState } from '../../state/session.store';
+import { SessionStore, User,initialState } from '../../state/session.store';
 
-/*
-  Generated class for the UserProvider provider.
 
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class SessionProvider {
 
@@ -18,9 +13,7 @@ export class SessionProvider {
    * Función que setea los datos del user y establece el lastLogin. 
    */
   login(user:User) {
-    user.lastLogin = Date.now();
-    console.log('login user',user);
-    
+    user.lastLogin = Date.now();  
     this.sessionStore.update({ user:user});
   }
 
