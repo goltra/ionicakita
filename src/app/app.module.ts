@@ -1,15 +1,15 @@
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { ErrorHandler, NgModule } from '@angular/core';
-import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
-import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
-import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
+import { RouteReuseStrategy } from '@angular/router';
 import { environment } from '../environments/environment';
 
+import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
 
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
+import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
+import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
 import { SessionProvider } from '../providers/session/session';
 import { SessionStore } from '../state/session.store';
 import { SessionQuery } from '../state/session.query';
@@ -18,27 +18,20 @@ import { UiQuery } from '../state/ui.query';
 import { UiStore } from '../state/ui.store';
 
 @NgModule({
-  declarations: [
-    MyApp,
-    HomePage,
-    ListPage
-  ],
+  declarations: [AppComponent],
+  entryComponents: [],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp), environment.production ? [] : AkitaNgDevtools.forRoot(),
-  ],
-  bootstrap: [IonicApp],
-  entryComponents: [
-    MyApp,
-    HomePage,
-    ListPage
+    IonicModule.forRoot(),environment.production ? [] : AkitaNgDevtools.forRoot(),
+    AppRoutingModule
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: ErrorHandler, useClass: IonicErrorHandler },
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     SessionProvider, SessionStore, SessionQuery,
     UiProvider, UiStore, UiQuery
-  ]
+  ],
+  bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

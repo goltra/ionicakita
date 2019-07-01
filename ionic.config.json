@@ -1,5 +1,7 @@
 {
-  "name": "ionicakita",
-  "integrations": {},
-  "type": "ionic-angular"
+  "name": "akita",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
 }
